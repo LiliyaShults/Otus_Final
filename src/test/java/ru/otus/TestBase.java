@@ -16,11 +16,14 @@ public class TestBase {
     public void setupImplicitWait() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
+    static final String PAGE_URL = "https://otus.ru/";
+
 
     @BeforeEach
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
+        System.setProperty("webdriver.chrome.driver", "/Users/a.safronov/Downloads/chromedriver-mac-arm64/chromedriver");
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("--incognito");
         driver = new ChromeDriver(options);
